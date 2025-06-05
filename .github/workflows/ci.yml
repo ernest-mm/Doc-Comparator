@@ -48,6 +48,3 @@ jobs:
           coverage report --fail-under=80
           # Génère un rapport HTML dans le dossier htmlcov (optionnel)
           coverage html
-
-      - name: Run tests
-        run: pytest --maxfail=1 --disable-warnings -q
