@@ -39,5 +39,15 @@ jobs:
           echo "Vérification du typage statique avec mypy..."
           mypy --config-file=config/mypy.ini .
 
+      - name: Run tests with coverage
+        run: |
+          echo "Exécution des tests avec coverage..."
+          # Exécute les tests et collecte la couverture
+          coverage run -m pytest --maxfail=1 --disable-warnings -q
+          # Affiche un rapport texte et échoue si la couverture est inférieure à 80%
+          coverage report --fail-under=80
+          # Génère un rapport HTML dans le dossier htmlcov (optionnel)
+          coverage html
+
       - name: Run tests
         run: pytest --maxfail=1 --disable-warnings -q
