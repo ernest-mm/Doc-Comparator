@@ -1,4 +1,4 @@
-def show_menu():
+def show_menu() -> None:
     print("-"*30 + " COMPARAISON DES DOCUMENTS " + "-"*30)
     print(" Selectionnez le type de fichier: ")
     print("[1] .txt")
@@ -19,7 +19,7 @@ def take_input(possible_choices: set) -> int:
 
     return choice
 
-def doc_comparison_menu():
+def doc_comparison_menu() -> None :
     show_menu()
     print("")
 
@@ -37,7 +37,5 @@ def doc_comparison_menu():
         case 0:
             print("<< Retour au menu principal >>")
             
-doc_comparison_menu()
-    
-
-
+if __name__ == "__main__":
+    doc_comparison_menu()
