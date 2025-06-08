@@ -17,4 +17,16 @@ def remove_punctuation(text: str) -> str:
     :param text: Texte contenant éventuellement de la ponctuation.
     :return: Texte sans ponctuation.
     """
-    pass
+    #TODO: Implémenter la suppression de la ponctuation
+
+def normalize_whitespaces(text: str) -> str:
+    """
+    Normalise les espaces dans le texte en remplaçant les séquences d'espaces,
+    tabulations et retours à la ligne par un espace unique, et en supprimant les
+    espaces superflus en début et fin de texte.
+    
+    :param text: Texte à normaliser.
+    :return: Texte avec des espaces standardisés.
+    """
+    #TODO: Implémenter la normalisation des espaces
+
