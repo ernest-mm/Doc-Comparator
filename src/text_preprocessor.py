@@ -41,3 +41,26 @@ def apply_strict_mode(text: str) -> str:
     """
     #TODO: Implémenter le mode strict
 
+def preprocess_text(
+        text: str,
+        ignore_case: bool = True,
+        clean_punctuation: bool = True,
+        normalize_spaces: bool = True,
+        strict_mode: bool = False
+    ) -> str:
+    """
+    Prétraite le texte selon plusieurs options :
+    
+    - Ignorer la casse : conversion en minuscules.
+    - Nettoyer la ponctuation : suppression des signes de ponctuation.
+    - Normaliser les espaces : réduction des espaces multiples et gestion des retours à la ligne.
+    - Mode strict : aucune transformation n'est appliquée (tout caractère compte).
+    
+    :param text: Texte original à prétraiter.
+    :param ignore_case: Si True, le texte sera transformé en minuscules.
+    :param clean_punctuation: Si True, la ponctuation sera supprimée.
+    :param normalize_spaces: Si True, les espaces du texte seront normalisés.
+    :param strict_mode: Si True, aucune transformation n'est appliquée (mode strict).
+    :return: Texte prétraité en fonction des options spécifiées.
+    """
+    #TODO: Implémenter le prétraitement du texte selon les options fournies
