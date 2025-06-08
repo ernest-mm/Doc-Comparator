@@ -30,3 +30,14 @@ def normalize_whitespaces(text: str) -> str:
     """
     #TODO: Implémenter la normalisation des espaces
 
+def apply_strict_mode(text: str) -> str:
+    """
+    Applique le mode strict sur le texte de sorte qu'aucune modification (minuscule,
+    suppression de ponctuation, normalisation d'espaces) ne soit effectuée.
+    Ce mode peut être utile pour une comparaison où chaque caractère compte.
+    
+    :param text: Texte original.
+    :return: Texte inchangé ou adapté selon la logique strict (ici, généralement inchangé).
+    """
+    #TODO: Implémenter le mode strict
+
