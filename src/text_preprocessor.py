@@ -2,6 +2,7 @@ import re
 import string
 
 def convert_to_lowercase(text: str) -> str:
+    return text.lower() 
     """
     Convertit l'intégralité du texte en minuscules.
     
@@ -64,3 +65,6 @@ def preprocess_text(
     :return: Texte prétraité en fonction des options spécifiées.
     """
     #TODO: Implémenter le prétraitement du texte selon les options fournies
+if __name__ == "__main__":
+    exemple = "BonJOUR À TOUS ! ÇA VA ?"
+    print(convert_to_lowercase(exemple))
