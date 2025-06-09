@@ -31,6 +31,9 @@ def normalize_whitespaces(text: str) -> str:
     #TODO: Implémenter la normalisation des espaces
 
 def apply_strict_mode(text: str) -> str:
+    text = text.lower()
+    text = '' .join(char for char in text if char.isalpha())
+    return text
     """
     Applique le mode strict sur le texte de sorte qu'aucune modification (minuscule,
     suppression de ponctuation, normalisation d'espaces) ne soit effectuée.
@@ -64,3 +67,6 @@ def preprocess_text(
     :return: Texte prétraité en fonction des options spécifiées.
     """
     #TODO: Implémenter le prétraitement du texte selon les options fournies
+if __name__ == "__main__":
+    texte_original = "Exemple !   Avec  des ESPACES et Ponctuation !"
+    print(apply_strict_mode(texte_original))
