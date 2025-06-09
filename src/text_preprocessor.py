@@ -17,7 +17,7 @@ def remove_punctuation(text: str) -> str:
     :param text: Texte contenant éventuellement de la ponctuation.
     :return: Texte sans ponctuation.
     """
-    #TODO: Implémenter la suppression de la ponctuation
+    return ''.join(char for char in text if char not in string.punctuation)
 
 def normalize_whitespaces(text: str) -> str:
     """
@@ -64,3 +64,7 @@ def preprocess_text(
     :return: Texte prétraité en fonction des options spécifiées.
     """
     #TODO: Implémenter le prétraitement du texte selon les options fournies
+
+if __name__ == "__main__":
+    exemple = "Bonjour! Comment ça va? Très bien, merci."
+    print(remove_punctuation(exemple))
