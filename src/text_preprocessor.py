@@ -39,7 +39,7 @@ def apply_strict_mode(text: str) -> str:
     :param text: Texte original.
     :return: Texte inchangé ou adapté selon la logique strict (ici, généralement inchangé).
     """
-    #TODO: Implémenter le mode strict
+    return text
 
 def preprocess_text(
         text: str,
@@ -64,7 +64,7 @@ def preprocess_text(
     :return: Texte prétraité en fonction des options spécifiées.
     """
     #TODO: Implémenter le prétraitement du texte selon les options fournies
-    
+
 if __name__ == "__main__":
-    exemple = "BonJOUR À TOUS ! ÇA VA ?"
-    print(convert_to_lowercase(exemple))
+    texte_original = "Exemple !   Avec  des ESPACES et Ponctuation !"
+    print(apply_strict_mode(texte_original))
