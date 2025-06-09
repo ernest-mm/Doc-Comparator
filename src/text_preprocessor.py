@@ -8,7 +8,7 @@ def convert_to_lowercase(text: str) -> str:
     :param text: Texte d'origine.
     :return: Texte converti en minuscules.
     """
-    #TODO: Implémenter la conversion en minuscules
+    return text.lower() 
 
 def remove_punctuation(text: str) -> str:
     """
@@ -64,7 +64,7 @@ def preprocess_text(
     :return: Texte prétraité en fonction des options spécifiées.
     """
     #TODO: Implémenter le prétraitement du texte selon les options fournies
-
+    
 if __name__ == "__main__":
-    exemple = "Bonjour! Comment ça va? Très bien, merci."
-    print(remove_punctuation(exemple))
+    exemple = "BonJOUR À TOUS ! ÇA VA ?"
+    print(convert_to_lowercase(exemple))
