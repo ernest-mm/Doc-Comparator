@@ -8,7 +8,7 @@ def convert_to_lowercase(text: str) -> str:
     :param text: Texte d'origine.
     :return: Texte converti en minuscules.
     """
-    #TODO: Implémenter la conversion en minuscules
+    return text.lower() 
 
 def remove_punctuation(text: str) -> str:
     """
@@ -17,7 +17,7 @@ def remove_punctuation(text: str) -> str:
     :param text: Texte contenant éventuellement de la ponctuation.
     :return: Texte sans ponctuation.
     """
-    #TODO: Implémenter la suppression de la ponctuation
+    return ''.join(char for char in text if char not in string.punctuation)
 
 def normalize_whitespaces(text: str) -> str:
     """
@@ -31,9 +31,6 @@ def normalize_whitespaces(text: str) -> str:
     #TODO: Implémenter la normalisation des espaces
 
 def apply_strict_mode(text: str) -> str:
-    text = text.lower()
-    text = '' .join(char for char in text if char.isalpha())
-    return text
     """
     Applique le mode strict sur le texte de sorte qu'aucune modification (minuscule,
     suppression de ponctuation, normalisation d'espaces) ne soit effectuée.
@@ -42,7 +39,7 @@ def apply_strict_mode(text: str) -> str:
     :param text: Texte original.
     :return: Texte inchangé ou adapté selon la logique strict (ici, généralement inchangé).
     """
-    #TODO: Implémenter le mode strict
+    return text
 
 def preprocess_text(
         text: str,
@@ -67,6 +64,7 @@ def preprocess_text(
     :return: Texte prétraité en fonction des options spécifiées.
     """
     #TODO: Implémenter le prétraitement du texte selon les options fournies
+
 if __name__ == "__main__":
     texte_original = "Exemple !   Avec  des ESPACES et Ponctuation !"
     print(apply_strict_mode(texte_original))
