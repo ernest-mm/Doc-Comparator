@@ -20,6 +20,8 @@ def remove_punctuation(text: str) -> str:
     #TODO: Implémenter la suppression de la ponctuation
 
 def normalize_whitespaces(text: str) -> str:
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()
     """
     Normalise les espaces dans le texte en remplaçant les séquences d'espaces,
     tabulations et retours à la ligne par un espace unique, et en supprimant les
@@ -48,7 +50,16 @@ def preprocess_text(
         normalize_spaces: bool = True,
         strict_mode: bool = False
     ) -> str:
-    """
+        if strict_mode:
+             return text
+        if ignore_case:
+            text = text.lower()
+        if clean_punctuation:
+            text = re.sub(r'[^\w\s]', '', text)
+        if normalize_spaces:
+            text = normalize_whitespaces(text)
+        return text
+"""
     Prétraite le texte selon plusieurs options :
     
     - Ignorer la casse : conversion en minuscules.
@@ -64,3 +75,6 @@ def preprocess_text(
     :return: Texte prétraité en fonction des options spécifiées.
     """
     #TODO: Implémenter le prétraitement du texte selon les options fournies
+if __name__ == "__main__":
+    exemple = "Bonjour!   Comment\tça va?   Très bien, merci."
+    print(preprocess_text(exemple))
