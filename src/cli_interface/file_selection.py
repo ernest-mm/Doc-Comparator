@@ -1,32 +1,33 @@
-def afficher_menu():
-    print("-----------------SELECTION DES FICHIERS----------------")
-    print("Entrez le chemin complet du premier chemins :")
-    print("Entrez le chemin complet du second chemins :")
-    print("\n(Si vous voulez rentrer au menu precedent, tapez 0)\n")
+def show_menu_title() -> None:
+    """
+    Affiche le titre du menu de sélection de fichiers.
+    """
+    print("-" * 30 + " SELECTION DES FICHIERS " + "-" * 30)
 
-def demander_chemin(numero):
-    chemin = input(f"chemin du fichier {numero} : ")
-    if chemin == "0":
+def ask_file_path() -> None:
+    """
+    Demande à l'utilisateur les deux fichiers à comparer.
+    """
+    path_1 = input("Entrez le chemin complet du premier fichier (ou 0 pour quitter): ")
+    if path_1 == "0":
         print("Retour au menu precedent...")
-        print("sortie du programme")
-        sys.exit()
-    elif chemin == "2":
-        print("entrez le 2eme chemin...")
-        return None
-    return chemin
-def main():
-    afficher_menu()
-    chemin1 = demander_chemin(1)
-    if chemin1 is None:
+        return
+
+    path_2 = input("Entrez le chemin complet du second fichier (ou 0 pour quitter): ")
+    if path_2 == "0":
+        print("Retour au menu precedent...")
         return
     
-    chemin2 = demander_chemin(2)  
-    if chemin2 is None:
-        return
-    print("\n chemin saisis :")
-    print(f"1er fichier : {chemin1}")
-    print(f"2e fichier : {chemin2}")
+    print("\nChemins saisis :")
+    print(f"1er fichier : {path_1}")
+    print(f"2e fichier : {path_2}")
 
-if  __name__ == "__main__":
-    main()
 
+def file_selection_menu() -> None:
+    show_menu_title()
+    print("")
+
+    ask_file_path()
+
+if __name__ == "__main__":
+    file_selection_menu()
