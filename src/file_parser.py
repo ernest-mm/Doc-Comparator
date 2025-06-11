@@ -13,11 +13,17 @@ def read_txt_file(filepath: str) -> str:
     """ 
     Lit le contenu d'un fichier texte (.txt) et 
     renvoie le texte sous forme de chaîne de caractères.
-
     :param filepath: Chemin d'accès au fichier texte.
     :return: Contenu du fichier sous forme de chaîne, ou None en cas d'erreur.
     """
     #TODO: Implémenter la lecture du fichier texte
+    try :
+        with open(filepath, 'r', encoding='utf-8') as file:
+            contenu = file.read()
+            return contenu
+    except Exception as e:
+        print(f"Erreur lors de la lecture du fichier : {e}")
+        return None
 
 def read_pdf_file(filepath: str) -> str:
     """
