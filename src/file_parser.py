@@ -26,14 +26,26 @@ def read_txt_file(filepath: str) -> str:
         return None
 
 def read_pdf_file(filepath: str) -> str:
+    import pdfplumber
     """
     Extrait le texte d'un fichier PDF.
-
     :param filepath: Chemin d'accès au fichier PDF.
     :return: Texte extrait du PDF sous forme de chaîne, ou None en cas d'erreur.
     """
     #TODO: Implémenter la lecture du fichier PDF
-
+    try:
+        texte_complet = ""
+        with pdfplumber.open(filepath) as pdf:
+            for page in pdf.pages:
+                texte = page.extract_text()
+                if texte:
+                    texte_complet += texte + "\n"
+        return texte_complet
+    except Exception as e:
+        print(f"Erreur lors de la lecture du fichier : {e}")
+        return None
+    
+    
 def parse_file(filepath: str) -> str:
     """
     Détecte l'extension du fichier et appelle la fonction appropriée de lecture
@@ -46,3 +58,14 @@ def parse_file(filepath: str) -> str:
     """
     #TODO: Implémenter la détection de l'extension du fichier et 
     # appeler la fonction de lecture appropriée
+    
+
+if __name__ == "__main__":
+    contenu = read_pdf_file("src/test.pdf")
+    if contenu:
+        print("contenu extrait du pdf :\n")
+        print(contenu)
+    else:
+        print("une erreur est survenue ou le fichier est vide")
+
+
