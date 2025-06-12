@@ -28,8 +28,9 @@ def normalize_whitespaces(text: str) -> str:
     :param text: Texte à normaliser.
     :return: Texte avec des espaces standardisés.
     """
-    #TODO: Implémenter la normalisation des espaces
-
+    text = text.strip()
+    text = re.sub(r'\s+', ' ', text)
+    return text
 def apply_strict_mode(text: str) -> str:
     """
     Applique le mode strict sur le texte de sorte qu'aucune modification (minuscule,
@@ -63,8 +64,17 @@ def preprocess_text(
     :param strict_mode: Si True, aucune transformation n'est appliquée (mode strict).
     :return: Texte prétraité en fonction des options spécifiées.
     """
-    #TODO: Implémenter le prétraitement du texte selon les options fournies
+    if strict_mode:
+        return apply_strict_mode(text)
+    if ignore_case:
+        text = convert_to_lowercase(text)
+    if clean_punctuation:
+        text = remove_punctuation(text)
+    if normalize_spaces:
+        text = normalize_whitespaces(text)
+    return text
+    
 
 if __name__ == "__main__":
-    texte_original = "Exemple !   Avec  des ESPACES et Ponctuation !"
-    print(apply_strict_mode(texte_original))
+    exemple = "Bonjour!   Comment\tça va?   Très bien, merci."
+    print(preprocess_text(exemple))
