@@ -8,6 +8,7 @@ def file_exists(filepath: str) -> bool:
     :return: True si le fichier existe, False sinon.
     """
     #TODO: Implémenter la vérification de l'existence du fichier
+    return os.path.isfile(filepath)
 
 def read_txt_file(filepath: str) -> str:
     """ 
@@ -40,3 +41,12 @@ def parse_file(filepath: str) -> str:
     """
     #TODO: Implémenter la détection de l'extension du fichier et 
     # appeler la fonction de lecture appropriée
+
+    if __name__ == "__main__":
+        chemin1 = "exemple.txt"
+        chemin2 = "fichier_inexistant.pdf"
+
+        print(file_exists(chemin1))
+        print(file_exists(chemin2))
+
+
