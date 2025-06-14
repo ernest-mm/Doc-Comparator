@@ -71,8 +71,28 @@ def compare_words_in_line(line1: str, line2: str) -> dict:
         "differences": differences
     }
 
+def calculate_similarity_rate(text1: str, text2: str) -> float:
+    """
+    Calcule le pourcentage de similarité entre deux textes en fonction des lignes communes.
+
+    :param text1: Premier texte.
+    :param text2: Deuxième texte.
+    :return: Taux de similarité (entre 0.0 et 100.0).
+    """
+    result = compare_lines(text1, text2)
+    nb_communes = len(result['common'])
+
+    # Nombre total moyen de lignes dans les deux textes
+    nb_total = (len(text1.splitlines()) + len(text2.splitlines())) / 2
+
+    if nb_total == 0:
+        return 100.0  # Deux textes vides = 100% similaires
+
+    taux = (nb_communes / nb_total) * 100
+    return round(taux, 2)
+
+
 if __name__ == "__main__":
-    line1 = "Le chat mange une souris"
-    line2 = "Le chien mange une pomme"
-    resultat = compare_words_in_line(line1, line2)
-    print(resultat)
+    t1 = "Bonjour\nComment vas-tu ?\nTrès bien merci"
+    t2 = "Bonjour\nComment ça va ?\nTrès bien merci"
+    print("Taux de similarité :", calculate_similarity_rate(t1, t2))
