@@ -117,8 +117,6 @@ def identify_unique_words(text1: str, text2: str) -> dict:
         "only_in_text2": only_in_text2
     }
 
-
-
 if __name__ == "__main__":
     t1 = "Le chat mange une souris"
     t2 = "Le chien mange une pomme"
