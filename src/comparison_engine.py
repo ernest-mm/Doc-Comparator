@@ -91,8 +91,36 @@ def calculate_similarity_rate(text1: str, text2: str) -> float:
     taux = (nb_communes / nb_total) * 100
     return round(taux, 2)
 
+def identify_unique_words(text1: str, text2: str) -> dict:
+    """
+    Identifie les mots présents uniquement dans l'un des deux textes.
+
+    :param text1: Contenu du premier document.
+    :param text2: Contenu du deuxième document.
+    :return: Dictionnaire avec :
+        - 'only_in_text1': liste des mots uniques au texte 1
+        - 'only_in_text2': liste des mots uniques au texte 2
+    """
+    # On découpe les textes en mots (en ignorant la casse)
+    words1 = text1.lower().split()
+    words2 = text2.lower().split()
+
+    # On utilise les ensembles pour détecter les mots uniques
+    set1 = set(words1)
+    set2 = set(words2)
+
+    only_in_text1 = list(set1 - set2)
+    only_in_text2 = list(set2 - set1)
+
+    return {
+        "only_in_text1": only_in_text1,
+        "only_in_text2": only_in_text2
+    }
+
+
 
 if __name__ == "__main__":
-    t1 = "Bonjour\nComment vas-tu ?\nTrès bien merci"
-    t2 = "Bonjour\nComment ça va ?\nTrès bien merci"
-    print("Taux de similarité :", calculate_similarity_rate(t1, t2))
+    t1 = "Le chat mange une souris"
+    t2 = "Le chien mange une pomme"
+    uniques = identify_unique_words(t1, t2)
+    print("Mots uniques :", uniques)
